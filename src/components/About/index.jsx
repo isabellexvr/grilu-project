@@ -1,12 +1,18 @@
 import styled from "styled-components";
 import about from "../../assets/about.jpg";
+import {FaRegLightbulb} from "react-icons/fa";
 
 export default function About() {
   return (
     <AboutContainer>
       <Title>
         SOBRE O{"\n"}
-        <strong>GRILU</strong>
+        <Logo>
+        <FaRegLightbulb />
+        <h1>
+          <strong>GR</strong>ILU
+        </h1>
+      </Logo>
       </Title>
       <AboutImage src={about} />
       <Do>
@@ -109,5 +115,27 @@ const Foundation = styled.div`
              1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
   > strong {
     font-weight: 800;
+  }
+`;
+
+const Logo = styled.div`
+  color: #fff;
+  font-family: Tsukimi Rounded;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  width: 23%;
+  > svg {
+    font-size: 30px;
+    color: #e3c17c;
+  }
+  > h1 {
+    > strong {
+      color: #ae8034;
+    }
   }
 `;

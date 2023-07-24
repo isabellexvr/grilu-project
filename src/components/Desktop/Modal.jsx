@@ -85,7 +85,6 @@ const INFOS = [
 ];
 
 export default function Modal({ onClose, modalInfo }) {
-  console.log(modalInfo);
   return (
     <>
       <ModalContainer>

@@ -24,8 +24,6 @@ function App() {
   const { ref: mobileRef, inView: mobileInView } = useInView(options);
   const { ref: aboutRef, inView: aboutInView } = useInView(options);
 
-  console.log(mobileRef)
-
   return (
     <AppContainer>
       <Header />

@@ -87,6 +87,7 @@ const HeaderContainer = styled.div`
     //background-color: green;
   }
   .menu {
+    opacity: 0;
     margin-right: 30px;
     display: flex;
     align-items: center;

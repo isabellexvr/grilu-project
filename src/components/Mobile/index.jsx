@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Cards from "../Desktop/Cards";
+import {HiOutlineDevicePhoneMobile} from "react-icons/hi2"
 
 export default function Mobile({ setShowModal, setModalInfo }) {
   return (
@@ -7,7 +8,7 @@ export default function Mobile({ setShowModal, setModalInfo }) {
       <Title>
         APLICATIVO
         {"\n"}
-        <strong>MOBILE</strong>
+        <strong><HiOutlineDevicePhoneMobile/>&nbsp;MOBILE</strong>
       </Title>
       <div className="card">
         <Cards
@@ -51,5 +52,10 @@ const Title = styled.div`
   line-height: normal;
   > strong {
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    >svg{
+      color: #ae8034;
+    }
   }
 `;

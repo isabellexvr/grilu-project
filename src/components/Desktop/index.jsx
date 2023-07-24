@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Cards from "./Cards";
+import {AiOutlineDesktop} from "react-icons/ai"
 
 const CARDS = [
   {
@@ -26,7 +27,7 @@ export default function Desktop({ setShowModal, setModalInfo }) {
       <Title>
         SOFTWARES
         {"\n"}
-        <strong>DESKTOP</strong>
+        <strong><AiOutlineDesktop/>&nbsp;DESKTOP</strong>
       </Title>
       <div className="cards">
         {CARDS.map((c, i) => (
@@ -74,5 +75,10 @@ const Title = styled.div`
 
   > strong {
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    >svg{
+      color: #ae8034;
+    }
   }
 `;
