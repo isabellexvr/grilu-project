@@ -19,19 +19,43 @@ export default function Header() {
         </h1>
       </Logo>
       <div className="contact">
-        <ContactIconHolder>
+        <ContactIconHolder
+          onClick={() => {
+            window.open("https://www.facebook.com/griluufal/", "_blank");
+          }}
+        >
           <FaFacebookF />
         </ContactIconHolder>
-        <ContactIconHolder>
+
+        <ContactIconHolder
+          onClick={() => {
+            window.open("https://twitter.com/GRILUUFAL?s=08", "_blank");
+          }}
+        >
           <FaTwitter />
         </ContactIconHolder>
-        <ContactIconHolder>
+
+        <ContactIconHolder
+          onClick={() => {
+            window.open("mailtogrilu@ctec.ufal.br", "_blank");
+          }}
+        >
           <MdEmail />
         </ContactIconHolder>
-        <ContactIconHolder>
+
+        <ContactIconHolder
+          onClick={() => {
+            window.open("https://www.youtube.com/channel/UCpiqrkStZCE4M544501aaig", "_blank");
+          }}
+        >
           <FaYoutube />
         </ContactIconHolder>
-        <ContactIconHolder>
+
+        <ContactIconHolder
+          onClick={() => {
+            window.open("tel:(82)3214-1311", "_blank");
+          }}
+        >
           <FaPhone />
         </ContactIconHolder>
       </div>
@@ -66,11 +90,11 @@ const HeaderContainer = styled.div`
     margin-right: 30px;
     display: flex;
     align-items: center;
-    font-family: 'Montserrat', sans-serif;
-    >h1{
-        color: white;
-        margin-right: 10px;
-        font-weight: 500;
+    font-family: "Montserrat", sans-serif;
+    > h1 {
+      color: white;
+      margin-right: 10px;
+      font-weight: 500;
     }
   }
 `;
@@ -88,7 +112,7 @@ const Logo = styled.div`
   width: 23%;
   > svg {
     font-size: 30px;
-    color: #E3C17C;
+    color: #e3c17c;
   }
   > h1 {
     > strong {

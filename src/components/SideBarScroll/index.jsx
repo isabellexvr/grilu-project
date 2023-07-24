@@ -5,7 +5,7 @@ export default function SideBarScroll({
   homeInView,
   desktopInView,
   mobileInView,
-  contactInView,
+  aboutInView,
 }) {
   return (
     <ScrollMenu>
@@ -36,18 +36,26 @@ export default function SideBarScroll({
       {mobileInView ? (
         <Active>
           <div className="line"></div>
-          <h1><Link to="mobile">MOBILE</Link></h1>
+          <h1>
+            <Link to="mobile">MOBILE</Link>
+          </h1>
         </Active>
       ) : (
-        <Deactivated><Link to="mobile">MOBILE</Link></Deactivated>
+        <Deactivated>
+          <Link to="mobile">MOBILE</Link>
+        </Deactivated>
       )}
-      {contactInView ? (
+      {aboutInView ? (
         <Active>
           <div className="line"></div>
-          <h1>CONTATO</h1>
+          <h1>
+            <Link to="about">SOBRE</Link>
+          </h1>
         </Active>
       ) : (
-        <Deactivated>CONTATO</Deactivated>
+        <Deactivated>
+          <Link to="about">SOBRE</Link>
+        </Deactivated>
       )}
     </ScrollMenu>
   );

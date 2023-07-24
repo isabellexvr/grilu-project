@@ -5,24 +5,26 @@ import { useInView } from "react-intersection-observer";
 import { Element } from "react-scroll";
 import SideBarScroll from "./components/SideBarScroll";
 import Desktop from "./components/Desktop";
-import { createPortal } from 'react-dom';
+import { createPortal } from "react-dom";
 import Modal from "./components/Desktop/Modal";
 import { useState } from "react";
 import Mobile from "./components/Mobile";
+import About from "./components/About";
 
 function App() {
-
   const modalNode = document.getElementById("modal");
   const [showModal, setShowModal] = useState(false);
   const [modalInfo, setModalInfo] = useState(null);
 
   const options = {
-    threshold: 0.5
-  }
+    threshold: 0.5,
+  };
   const { ref: homeRef, inView: homeInView } = useInView(options);
   const { ref: desktopRef, inView: desktopInView } = useInView(options);
   const { ref: mobileRef, inView: mobileInView } = useInView(options);
-  const { ref: contactRef, inView: contactInView } = useInView(options);
+  const { ref: aboutRef, inView: aboutInView } = useInView(options);
+
+  console.log(mobileRef)
 
   return (
     <AppContainer>
@@ -31,7 +33,7 @@ function App() {
         homeInView={homeInView}
         desktopInView={desktopInView}
         mobileInView={mobileInView}
-        contactInView={contactInView}
+        aboutInView={aboutInView}
       />
       <Element name="home">
         <div ref={homeRef} className="home">
@@ -41,15 +43,27 @@ function App() {
 
       <Element name="desktop">
         <div ref={desktopRef} className="desktop">
-          <Desktop  setShowModal={setShowModal} setModalInfo={setModalInfo} />
+          <Desktop setShowModal={setShowModal} setModalInfo={setModalInfo} />
         </div>
       </Element>
+
       <Element name="mobile">
         <div ref={mobileRef} className="mobile">
           <Mobile setShowModal={setShowModal} setModalInfo={setModalInfo} />
         </div>
       </Element>
-      {showModal && createPortal(<Modal onClose={() => setShowModal(false)} modalInfo={modalInfo} />, modalNode)}
+
+      <Element name="about">
+        <div ref={aboutRef} className="about">
+          <About setShowModal={setShowModal} setModalInfo={setModalInfo} />
+        </div>
+      </Element>
+
+      {showModal &&
+        createPortal(
+          <Modal onClose={() => setShowModal(false)} modalInfo={modalInfo} />,
+          modalNode
+        )}
     </AppContainer>
   );
 }
@@ -67,4 +81,3 @@ const AppContainer = styled.div`
     ),
     #161c26;
 `;
-

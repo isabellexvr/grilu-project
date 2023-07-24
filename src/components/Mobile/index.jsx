@@ -1,28 +1,27 @@
-import styled from 'styled-components'
-import Cards from '../Desktop/Cards';
+import styled from "styled-components";
+import Cards from "../Desktop/Cards";
 
-export default function Mobile({ setShowModal, setModalInfo }){
-    return (
-
-        <MobileContainer>
-                  <Title>
+export default function Mobile({ setShowModal, setModalInfo }) {
+  return (
+    <MobileContainer>
+      <Title>
         APLICATIVO
         {"\n"}
         <strong>MOBILE</strong>
       </Title>
       <div className="card">
         <Cards
-        background={"#7389ac"}
-        font={"#7389ac"}
-        description={"Dimensione janelas para captação da luz natural."}
-        name={"FLD"}
-        setShowModal={setShowModal}
-        index={4}
-        setModalInfo={setModalInfo}
+          background={"#7389ac"}
+          font={"#7389ac"}
+          description={"Dimensione janelas para captação da luz natural."}
+          name={"FLD"}
+          setShowModal={setShowModal}
+          index={4}
+          setModalInfo={setModalInfo}
         />
       </div>
-        </MobileContainer>
-    )
+    </MobileContainer>
+  );
 }
 
 const MobileContainer = styled.div`
@@ -39,7 +38,7 @@ const MobileContainer = styled.div`
     flex-wrap: wrap;
     height: 70%;
   }
-`
+`;
 
 const Title = styled.div`
   color: #fff;
@@ -51,7 +50,6 @@ const Title = styled.div`
   flex-direction: column;
   align-items: flex-end;
   line-height: normal;
-
   > strong {
     font-weight: 700;
   }
