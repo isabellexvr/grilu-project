@@ -2,11 +2,19 @@ import styled from "styled-components";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import { useInView } from "react-intersection-observer";
-import { Element, Link } from "react-scroll";
+import { Element } from "react-scroll";
 import SideBarScroll from "./components/SideBarScroll";
 import Desktop from "./components/Desktop";
+import { createPortal } from 'react-dom';
+import Modal from "./components/Desktop/Modal";
+import { useState } from "react";
 
 function App() {
+
+  const modalNode = document.getElementById("modal");
+  const [showModal, setShowModal] = useState(false);
+  const [modalInfo, setModalInfo] = useState(null);
+
   const options = {
     threshold: 0.5
   }
@@ -32,9 +40,10 @@ function App() {
 
       <Element name="desktop">
         <div ref={desktopRef} className="desktop">
-          <Desktop  />
+          <Desktop  setShowModal={setShowModal} setModalInfo={setModalInfo} />
         </div>
       </Element>
+      {showModal && createPortal(<Modal onClose={() => setShowModal(false)} modalInfo={modalInfo} />, modalNode)}
     </AppContainer>
   );
 }

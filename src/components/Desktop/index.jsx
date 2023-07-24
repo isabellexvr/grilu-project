@@ -1,10 +1,26 @@
 import styled from "styled-components";
 import Cards from "./Cards";
 
-import Modal from "./Modal";
+const CARDS = [
+  {
+    name: "LUX",
+    description: "Simule o desempenho da iluminação num ambiente.",
+    color: "#e3c17c",
+  },
+  { name: "MASK", description: "Crie máscaras de sombra.", color: "#977944" },
+  {
+    name: "SOLAR",
+    description: "Obtenha informações precisas sobre geometria solar.",
+    color: "#7389ac",
+  },
+  {
+    name: "FAC",
+    description: "Entenda melhor sobre insolação em fachadas.",
+    color: "white",
+  },
+];
 
-export default function Desktop() {
-
+export default function Desktop({ setShowModal, setModalInfo }) {
   return (
     <DesktopContainer>
       <Title>
@@ -12,13 +28,23 @@ export default function Desktop() {
         {"\n"}
         <strong>DESKTOP</strong>
       </Title>
-
-      <Cards />
-      
+      <div className="cards">
+        {CARDS.map((c, i) => (
+          <Cards
+            key={i}
+            background={c.color}
+            font={c.color}
+            description={c.description}
+            name={c.name}
+            setShowModal={setShowModal}
+            index={i}
+            setModalInfo={setModalInfo}
+          />
+        ))}
+      </div>
     </DesktopContainer>
   );
 }
-
 
 const DesktopContainer = styled.div`
   padding-top: 130px;
@@ -35,7 +61,6 @@ const DesktopContainer = styled.div`
     height: 70%;
   }
 `;
-
 
 const Title = styled.div`
   color: #fff;

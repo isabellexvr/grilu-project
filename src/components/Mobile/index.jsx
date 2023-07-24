@@ -1,36 +1,31 @@
-import styled from "styled-components";
-import { FiArrowUpRight } from "react-icons/fi";
-import { TbWorldCog } from "react-icons/tb";
+import styled from 'styled-components'
 
-export default function Cards({
-  background,
-  font,
-  description,
-  name,
-  setShowModal,
-  index,
-  setModalInfo,
-}) {
-  return (
-    <>
-      <Card background={background}>
-        <FiArrowUpRight
-          onClick={() => {
-            setModalInfo(index);
-            setShowModal(true);
-          }}
-        />
-        <CardHeader font={font}>
-          <TbWorldCog />
-          <h1>
-            TROP<strong>{name}</strong>
-          </h1>
-        </CardHeader>
-        <CardBottom>{description}</CardBottom>
-      </Card>
-    </>
-  );
+export default function Mobile(){
+    return (
+
+        <MobileContainer>
+            <Card background="#7389ac" >
+                
+            </Card>
+        </MobileContainer>
+    )
 }
+
+const MobileContainer = styled.div`
+  padding-top: 130px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  .cards {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 70%;
+  }
+`
 
 const CardHeader = styled.div`
   width: 65%;
@@ -40,7 +35,7 @@ const CardHeader = styled.div`
   align-items: center;
   justify-content: space-evenly;
   background-color: #161c26;
-  color: ${(p) => p.font};
+  color: ${p => p.font};
   > h1 {
     font-family: Tsukimi Rounded;
     font-weight: 800;
@@ -62,7 +57,7 @@ const CardBottom = styled.h2`
 const Card = styled.div`
   width: 15vw;
   height: 15vw;
-  background-color: ${(p) => p.background};
+  background-color: ${p => p.background};
   border-radius: 22px;
   margin-right: 2vw;
   margin-bottom: 2vw;
