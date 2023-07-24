@@ -8,6 +8,7 @@ import Desktop from "./components/Desktop";
 import { createPortal } from 'react-dom';
 import Modal from "./components/Desktop/Modal";
 import { useState } from "react";
+import Mobile from "./components/Mobile";
 
 function App() {
 
@@ -41,6 +42,11 @@ function App() {
       <Element name="desktop">
         <div ref={desktopRef} className="desktop">
           <Desktop  setShowModal={setShowModal} setModalInfo={setModalInfo} />
+        </div>
+      </Element>
+      <Element name="mobile">
+        <div ref={mobileRef} className="mobile">
+          <Mobile setShowModal={setShowModal} setModalInfo={setModalInfo} />
         </div>
       </Element>
       {showModal && createPortal(<Modal onClose={() => setShowModal(false)} modalInfo={modalInfo} />, modalNode)}

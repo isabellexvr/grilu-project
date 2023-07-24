@@ -36,10 +36,10 @@ export default function SideBarScroll({
       {mobileInView ? (
         <Active>
           <div className="line"></div>
-          <h1>MOBILE</h1>
+          <h1><Link to="mobile">MOBILE</Link></h1>
         </Active>
       ) : (
-        <Deactivated>MOBILE</Deactivated>
+        <Deactivated><Link to="mobile">MOBILE</Link></Deactivated>
       )}
       {contactInView ? (
         <Active>

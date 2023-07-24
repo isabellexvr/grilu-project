@@ -3,6 +3,8 @@ import { VscLightbulbAutofix } from "react-icons/vsc";
 import { RxShadowInner } from "react-icons/rx";
 import { BsFillSunFill } from "react-icons/bs";
 import {GiBrickWall} from "react-icons/gi"
+import {FaHouseChimneyWindow} from "react-icons/fa6"
+
 const INFOS = [
   {
     icon: <VscLightbulbAutofix />,
@@ -63,6 +65,16 @@ const INFOS = [
       "Impressão de: * Relatório de insolação mensal, diária e anual. * Diagrama Solar com orientação das fachadas.",
     ],
     color: "white",
+  },
+  {
+    icon: <FaHouseChimneyWindow />,
+    title: "TropFLD",
+    description:
+      "O TropFLD é um aplicativo para smartphone, desenvolvido no Grupo de Pesquisa em Iluminação – GRILU.",
+    details: [
+      "Ajuda o projetista a dimensionar janelas para captação da luz natural.",
+    ],
+    color: "#7389ac",
   },
 ];
 
