@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Element } from "react-scroll";
 import lamp from "../../assets/lamp.png"
-import ScrollMenu from "../ScrollMenu";
 
 export default function Home() {
   return (
