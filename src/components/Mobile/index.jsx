@@ -43,7 +43,7 @@ const MobileContainer = styled.div`
 const Title = styled.div`
   color: #fff;
   font-family: Montserrat;
-  font-size: 55px;
+  font-size: 3.5vw;
   font-style: normal;
   width: 30%;
   display: flex;

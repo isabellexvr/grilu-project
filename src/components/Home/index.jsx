@@ -70,7 +70,7 @@ const Presentation = styled.h1`
   color: #fff;
   text-align: right;
   font-family: Montserrat;
-  font-size: 60px;
+  font-size: 4vw;
   font-style: normal;
   font-weight: 300;
   display: flex;
@@ -88,7 +88,7 @@ const Presentation = styled.h1`
     height: 3vw;
     color: #1e1e1e;
     font-family: Montserrat;
-    font-size: 22px;
+    font-size: 1.3vw;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
