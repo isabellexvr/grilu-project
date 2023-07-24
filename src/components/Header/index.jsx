@@ -53,6 +53,9 @@ const HeaderContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
   .contact {
     display: flex;
     justify-content: space-evenly;
@@ -85,6 +88,7 @@ const Logo = styled.div`
   width: 23%;
   > svg {
     font-size: 30px;
+    color: #E3C17C;
   }
   > h1 {
     > strong {

@@ -1,74 +1,54 @@
 import styled from "styled-components";
-import * as Scroll from "react-scroll";
-import { useRef } from "react";
 import Header from "./components/Header";
+import Home from "./components/Home";
+import { useInView } from "react-intersection-observer";
 
 function App() {
-  let Link = Scroll.Link;
-  let Element = Scroll.Element;
-  let scrollSpy = Scroll.scrollSpy;
+  const { ref: homeRef, inView: homeInView } = useInView();
+  const { ref: desktopRef, inView: desktopInView } = useInView();
+  const { ref: mobileRef, inView: mobileInView } = useInView();
+  const { ref: contactRef, inView: contactInView } = useInView();
 
-  console.log(scrollSpy);
-
-  var observer = new IntersectionObserver(
-    function (entries) {
-      // isIntersecting is true when element and viewport are overlapping
-      // isIntersecting is false when element and viewport don't overlap
-      if (entries[0].isIntersecting === true) {
-        console.log("Element has just become visible in screen");
-      }
-    },
-    { threshold: [0] }
-  );
-
-  let element = document.getElementById("1");
-
-  if (element) {
-    observer.observe(element);
-  }
-
+  console.log(homeRef)
+  
   return (
     <AppContainer>
       <Header />
-      <LightElement>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="1180"
-          height="90%"
-          viewBox="0 0 1180 1077"
-          fill="none"
-        >
-          <path
-            d="M610.5 -6.53579e-06L1179.5 -2.90379e-06L657.5 1077L0.500077 1077L610.5 -6.53579e-06Z"
-            fill="#D9D9D9"
-            fill-opacity="0.12"
-          />
-        </svg>
-      </LightElement>
-
-      <Element name="first">
-        <div id="1" style={{ width: "100px", height: "100vh", color: "blue" }}>
-          first
-        </div>
-      </Element>
-      <Element name="second">
-        <div id="2" style={{ width: "100px", height: "100vh", color: "blue" }}>
-          iii
-        </div>
-      </Element>
-      <Element name="3">
-        <div id="3" style={{ width: "100px", height: "100vh", color: "blue" }}>
-          3
-        </div>
-      </Element>
-      <Element name="4">
-        <div id="4" style={{ width: "100px", height: "100vh", color: "blue" }}>
-          4
-        </div>
-      </Element>
-      <Link hashSpy={true} to="first">
-        BORA
-      </Link>
+      <ScrollMenu>
+        {homeInView ? <Active>
+          <div className="line"></div>
+          <h1>INÍCIO</h1>
+        </Active> : 
+        <Deactivated>INÍCIO</Deactivated>
+        }
+                {desktopInView ? <Active>
+          <div className="line"></div>
+          <h1>DESKTOP</h1>
+        </Active> : 
+        <Deactivated>DESKTOP</Deactivated>
+        }
+                {mobileInView ? <Active>
+          <div className="line"></div>
+          <h1>MOBILE</h1>
+        </Active> : 
+        <Deactivated>MOBILE</Deactivated>
+        }
+                {contactInView ? <Active>
+          <div className="line"></div>
+          <h1>CONTATO</h1>
+        </Active> : 
+        <Deactivated>CONTATO</Deactivated>
+        }
+        
+        
+      </ScrollMenu>
+      <div ref={homeRef} className="home">
+        <Home  />
+      </div>
+      <div className="desktop">
+        <Test ref={desktopRef} />
+      </div>
+      
     </AppContainer>
   );
 }
@@ -87,8 +67,44 @@ const AppContainer = styled.div`
     #161c26;
 `;
 
-const LightElement = styled.div`
-  position: absolute;
-  top: 0;
-  z-index: 0;
+const ScrollMenu = styled.div`
+  position: fixed;
+  left: 3vw;
+  bottom: 10vh;
 `;
+
+const Active = styled.div`
+  display: flex;
+    align-items: center;
+  .line {
+    width: 30px;
+    height: 5px;
+    background-color: #ae8034;
+    margin-right: 10px;
+  }
+  > h1 {
+    color: #fff;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+  margin-bottom: 37px;
+`;
+
+const Deactivated = styled.div`
+color: rgba(255, 255, 255, 0.30);
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+margin-bottom: 37px;
+`;
+
+const Test = styled.div`
+background-color: black;
+width: 100vw;
+height: 100vh;
+`
