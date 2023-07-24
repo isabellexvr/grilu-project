@@ -2,8 +2,8 @@ import styled from "styled-components";
 import { VscLightbulbAutofix } from "react-icons/vsc";
 import { RxShadowInner } from "react-icons/rx";
 import { BsFillSunFill } from "react-icons/bs";
-import {GiBrickWall} from "react-icons/gi"
-import {FaHouseChimneyWindow} from "react-icons/fa6"
+import { GiBrickWall } from "react-icons/gi";
+import { FaHouseChimneyWindow } from "react-icons/fa6";
 
 const INFOS = [
   {
@@ -18,6 +18,7 @@ const INFOS = [
       "avaliação da disponibilidade de luz natural no ambiente urbano",
     ],
     color: "#e3c17c",
+    link: "https://ctec.ufal.br/grupopesquisa/grilu/?page_id=61",
   },
   {
     icon: <RxShadowInner />,
@@ -33,6 +34,7 @@ const INFOS = [
       "Permite escolha da cidade por um menu padrão ou definição da localização geográfica.",
     ],
     color: "#977944",
+    link: "https://ctec.ufal.br/grupopesquisa/grilu/?page_id=71",
   },
   {
     icon: <BsFillSunFill />,
@@ -50,7 +52,9 @@ const INFOS = [
       "Impressão de: * Gráficos da equação do tempo, com suas componentes. * Diagrama solar * Transferidor em projeção estereográfica * Gráficos da duração do dia astronômico, nascer e pôr-do-sol. * Analema.",
     ],
     color: "#7389ac",
+    link: "https://ctec.ufal.br/grupopesquisa/grilu/?page_id=69",
   },
+
   {
     icon: <GiBrickWall />,
     title: "TropFac",
@@ -65,6 +69,7 @@ const INFOS = [
       "Impressão de: * Relatório de insolação mensal, diária e anual. * Diagrama Solar com orientação das fachadas.",
     ],
     color: "white",
+    link: "https://ctec.ufal.br/grupopesquisa/grilu/?page_id=73",
   },
   {
     icon: <FaHouseChimneyWindow />,
@@ -75,6 +80,7 @@ const INFOS = [
       "Ajuda o projetista a dimensionar janelas para captação da luz natural.",
     ],
     color: "#7389ac",
+    link: "https://play.google.com/store/apps/details?id=org.tropfld.tropfld",
   },
 ];
 
@@ -86,7 +92,6 @@ export default function Modal({ onClose, modalInfo }) {
         <Header fontColor={INFOS[modalInfo].color}>
           {INFOS[modalInfo].icon}
           <h1>{INFOS[modalInfo].title}</h1>
-
         </Header>
 
         <Infos fontColor={INFOS[modalInfo].color}>
@@ -94,17 +99,21 @@ export default function Modal({ onClose, modalInfo }) {
           <h3>Detalhes:</h3>
           <ul>
             {INFOS[modalInfo].details.map((d, i) => (
-              <li key={i}>{i+1}. {d}</li>
+              <li key={i}>
+                {i + 1}. {d}
+              </li>
             ))}
           </ul>
         </Infos>
         <Options color={INFOS[modalInfo].color}>
-                <button onClick={onClose}>
-                    Talvez Mais Tarde
-                </button>
-                <button>
-                    Como Instalar?
-                </button>
+          <button onClick={onClose}>Talvez Mais Tarde</button>
+          <button
+            onClick={() => {
+              window.open(INFOS[modalInfo].link, "_blank");
+            }}
+          >
+            Como Instalar?
+          </button>
         </Options>
       </ModalContainer>
       <NotModal onClick={onClose}></NotModal>
@@ -144,14 +153,14 @@ const ModalContainer = styled.div`
 const Header = styled.div`
   display: flex;
   width: 100%;
-    align-items: center;    
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
   font-family: Montserrat;
   font-weight: 700;
   font-size: 25px;
   color: ${(p) => p.fontColor};
   margin-bottom: 40px;
-  >svg{
+  > svg {
     margin-right: 15px;
   }
 `;
@@ -168,44 +177,40 @@ const Infos = styled.div`
 
     font-weight: 600;
   }
-  >h3{
+  > h3 {
     font-weight: 600;
     color: ${(p) => p.fontColor};
     margin-bottom: 13px;
   }
-  >ul{
-    >li{
-        margin-bottom: 5px;
+  > ul {
+    > li {
+      margin-bottom: 5px;
     }
   }
-  
 `;
 
 const Options = styled.div`
-width: 90%;
-margin-top: 20px;
-display: flex;
-justify-content: space-around;
-color: #977944;
-font-family: Montserrat;
-font-weight: 700;
-cursor: pointer;
+  width: 90%;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  color: #977944;
+  font-family: Montserrat;
+  font-weight: 700;
+  cursor: pointer;
 
->button{
+  > button {
     all: unset;
     height: 40px;
-width: 150px;
-display: flex;
-justify-content: center;
-align-items: center;    
-border-radius: 10px;
-
-}
->button:first-child{
-    
-}
->button:last-child{
-    background-color: #E3C17C;
-    
-}
-`
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  > button:first-child {
+  }
+  > button:last-child {
+    background-color: #e3c17c;
+  }
+`;

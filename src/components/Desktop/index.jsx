@@ -47,7 +47,6 @@ export default function Desktop({ setShowModal, setModalInfo }) {
 }
 
 const DesktopContainer = styled.div`
-  padding-top: 130px;
   height: 100vh;
   width: 100%;
   display: flex;

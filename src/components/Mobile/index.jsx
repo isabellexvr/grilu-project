@@ -25,7 +25,6 @@ export default function Mobile({ setShowModal, setModalInfo }) {
 }
 
 const MobileContainer = styled.div`
-  padding-top: 130px;
   height: 100vh;
   width: 100%;
   display: flex;

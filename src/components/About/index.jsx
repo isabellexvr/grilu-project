@@ -11,15 +11,27 @@ export default function About() {
       <AboutImage src={about} />
       <Do>
         <strong>O que fazemos?</strong>
-        <li>investigações relacionadas à iluminação natural, à iluminação artificial e à eficiência energética na edificação</li>
-        <li>desenvolvimento de programas de computador e aplicativos de celular (multiplataforma) de apoio ao ensino (graduação e pós-graduação), à pesquisa e ao projeto do conforto ambiental no ambiente construído.</li>
+        {"\n"}
+        <li>
+          Investigações relacionadas à iluminação natural, à iluminação
+          artificial e à eficiência energética na edificação
+        </li>
+        <li>
+          Desenvolvimento de programas de computador e aplicativos de celular
+          (multiplataforma) de apoio ao ensino (graduação e pós-graduação), à
+          pesquisa e ao projeto do conforto ambiental no ambiente construído.
+        </li>
       </Do>
+      <Foundation>
+        Desde 2004,
+        no
+        <strong>CTEC-UFAL</strong>
+      </Foundation>
     </AboutContainer>
   );
 }
 
 const AboutContainer = styled.div`
-  padding-top: 130px;
   height: 105vh;
   width: 100%;
   display: flex;
@@ -54,7 +66,7 @@ const AboutImage = styled.img`
   object-fit: cover;
   width: 40%;
   border-radius: 25px;
-  opacity: 0.7;
+  opacity: 0.5;
 `;
 
 const Do = styled.h1`
@@ -71,14 +83,31 @@ const Do = styled.h1`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 10px;
   }
   width: 32vw;
   position: absolute;
   bottom: 5vw;
-  left: 15vw;
-
+  left: 18vw;
 `;
 
 const Foundation = styled.div`
-
-`
+  position: absolute;
+  right: 10vw;
+  bottom: 15vw;
+  color: #181e28;
+  font-family: Montserrat;
+  font-size: 55px;
+  font-style: normal;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: normal;
+  font-weight: 600;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+             1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  > strong {
+    font-weight: 800;
+  }
+`;

@@ -44,9 +44,9 @@ export default function Home() {
 }
 
 const HomeContainer = styled.div`
-  height: 110vh;
+padding-top: 80px;
+  height: 100vh;
   width: 100%;
-  //background-color: red;
   display: flex;
   align-items: center;
   position: relative;
