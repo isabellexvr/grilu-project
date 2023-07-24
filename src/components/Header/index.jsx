@@ -70,9 +70,11 @@ export default function Header() {
 }
 
 const HeaderContainer = styled.div`
+  @media(max-width: 450px) {
+    padding: 10px;
+  }
   height: 80px;
   width: 100%;
-  //background-color: red;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -81,13 +83,15 @@ const HeaderContainer = styled.div`
   top: 0;
   left: 0;
   .contact {
+    @media(max-width: 450px) {
+    display: none;
+  }
     display: flex;
     justify-content: space-evenly;
     width: 23%;
-    //background-color: green;
+
   }
   .menu {
-    opacity: 0;
     margin-right: 30px;
     display: flex;
     align-items: center;
@@ -101,6 +105,11 @@ const HeaderContainer = styled.div`
 `;
 
 const Logo = styled.div`
+  @media(max-width: 450px) {
+    width: 40%;
+    margin-left: 10px;
+    font-size: 30px;
+  }
   color: #fff;
   font-family: Tsukimi Rounded;
   font-size: 40px;
@@ -112,6 +121,9 @@ const Logo = styled.div`
   margin-left: 30px;
   width: 23%;
   > svg {
+    @media(max-width: 450px) {
+      font-size: 22px;
+  }
     font-size: 30px;
     color: #e3c17c;
   }
