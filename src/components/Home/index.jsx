@@ -27,7 +27,7 @@ export default function Home() {
             {"\n"}
             <strong>SOFTWARES</strong>
             <button>
-              <Link to="desktop">CONHEÇA</Link>
+              <Link smooth duration={1000} delay={200}  to="desktop">CONHEÇA</Link>
             </button>
           </Presentation>
         </div>

@@ -13,48 +13,48 @@ export default function SideBarScroll({
         <Active>
           <div className="line"></div>
           <h1>
-            <Link to="home">INÍCIO</Link>
+            <Link smooth duration={1000} delay={200} to="home">INÍCIO</Link>
           </h1>
         </Active>
       ) : (
         <Deactivated>
-          <Link to="home">INÍCIO</Link>
+          <Link smooth duration={1000} delay={200} to="home">INÍCIO</Link>
         </Deactivated>
       )}
       {desktopInView ? (
         <Active>
           <div className="line"></div>
           <h1>
-            <Link to="desktop">DESKTOP</Link>
+            <Link smooth duration={1000} delay={200}  to="desktop">DESKTOP</Link>
           </h1>
         </Active>
       ) : (
         <Deactivated>
-          <Link to="desktop">DESKTOP</Link>
+          <Link smooth duration={1000} delay={200}  to="desktop">DESKTOP</Link>
         </Deactivated>
       )}
       {mobileInView ? (
         <Active>
           <div className="line"></div>
           <h1>
-            <Link to="mobile">MOBILE</Link>
+            <Link smooth duration={1000} delay={200}  to="mobile">MOBILE</Link>
           </h1>
         </Active>
       ) : (
         <Deactivated>
-          <Link to="mobile">MOBILE</Link>
+          <Link smooth duration={1000} delay={200}  to="mobile">MOBILE</Link>
         </Deactivated>
       )}
       {aboutInView ? (
         <Active>
           <div className="line"></div>
           <h1>
-            <Link to="about">SOBRE</Link>
+            <Link smooth duration={1000} delay={200}  to="about">SOBRE</Link>
           </h1>
         </Active>
       ) : (
         <Deactivated>
-          <Link to="about">SOBRE</Link>
+          <Link smooth duration={1000} delay={200}  to="about">SOBRE</Link>
         </Deactivated>
       )}
     </ScrollMenu>
