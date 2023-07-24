@@ -1,67 +1,38 @@
 import styled from "styled-components";
 import { FiArrowUpRight } from "react-icons/fi";
-import TropLuxIcon from "../../assets/global.png";
 import { TbWorldCog } from "react-icons/tb";
+import { useState } from "react";
+import { createPortal } from 'react-dom';
+import Modal from "./Modal";
+
+const CARDS = [
+    {name: "LUX", description: "Simule o desempenho da iluminação num ambiente.", color: "#e3c17c"},
+    {name: "MASK", description: "Crie máscaras de sombra.", color: "#977944"},
+    {name: "SOLAR", description: "Obtenha informações precisas sobre geometria solar.", color: "#7389ac"},
+    {name: "FAC", description: "Entenda melhor sobre insolação em fachadas.", color: "white"}
+]
 
 export default function Cards(){
+    const modalNode = document.getElementById("modal");
+    const [showModal, setShowModal] = useState(false);
+    
+
+    
     return (
         <>
         <div className="cards">
-        <Card background="#e3c17c" >
-        <FiArrowUpRight />
-          <CardHeader font="#e3c17c">
-            
-            <TbWorldCog />
-            <h1>
-              TROP<strong>LUX</strong>
-            </h1>
-          </CardHeader>
-          <CardBottom>
-            Simule o desempenho da iluminação num ambiente.
-          </CardBottom>
-        </Card>
-
-        <Card background="#7A6137">
-        <FiArrowUpRight />
-          <CardHeader font="#7A6137">
-            
-            <TbWorldCog />
-            <h1>
-              TROP<strong>MASK</strong>
-            </h1>
-          </CardHeader>
-          <CardBottom>
-            Simule o desempenho da iluminação num ambiente.
-          </CardBottom>
-        </Card>
-        <Card background="#7389ac">
-        <FiArrowUpRight />
-          <CardHeader font="#7389ac" >
-            
-            <TbWorldCog />
-            <h1>
-              TROP<strong>SOLAR</strong>
-            </h1>
-          </CardHeader>
-          <CardBottom>
-            Simule o desempenho da iluminação num ambiente.
-          </CardBottom>
-        </Card>
-        <Card background="white" >
-        <FiArrowUpRight />
-          <CardHeader font="white" >
-            
-            <TbWorldCog />
-            <h1>
-              TROP<strong>FAC</strong>
-            </h1>
-          </CardHeader>
-          <CardBottom>
-            Simule o desempenho da iluminação num ambiente.
-          </CardBottom>
-        </Card>
-
+            {CARDS.map( (c,i) => 
+            <Card key={i} background={c.color} >
+                <FiArrowUpRight onClick={() => setShowModal(true)} />
+                <CardHeader font={c.color} >
+                    <TbWorldCog />
+                    <h1>TROP<strong>{c.name}</strong></h1>
+                </CardHeader>
+                <CardBottom>{c.description}</CardBottom>
+            </Card>
+            )}
       </div>
+      {showModal && createPortal(<Modal onClose={() => setShowModal(false)}/>, modalNode)}
         </>
     )
 }

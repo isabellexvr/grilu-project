@@ -1,20 +1,23 @@
 import styled from "styled-components";
 import Cards from "./Cards";
 
+import Modal from "./Modal";
+
 export default function Desktop() {
+
   return (
     <DesktopContainer>
       <Title>
-        Softwares
+        SOFTWARES
         {"\n"}
-        <strong>Desktop</strong>
+        <strong>DESKTOP</strong>
       </Title>
-      <Cards/>
 
+      <Cards />
+      
     </DesktopContainer>
   );
 }
-
 
 
 const DesktopContainer = styled.div`
@@ -37,7 +40,7 @@ const DesktopContainer = styled.div`
 const Title = styled.div`
   color: #fff;
   font-family: Montserrat;
-  font-size: 60px;
+  font-size: 55px;
   font-style: normal;
   width: 30%;
   display: flex;
