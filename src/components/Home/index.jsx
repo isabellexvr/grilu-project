@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Element } from "react-scroll";
+import { Element, Link } from "react-scroll";
 import lamp from "../../assets/lamp.png"
 
 export default function Home() {
@@ -29,7 +29,10 @@ export default function Home() {
             SOFTWARES 
           </strong>
           <button>
-            CONHEÇA
+            <Link to="desktop">
+              CONHEÇA
+            </Link>
+            
           </button>
         </Presentation>
       
@@ -66,13 +69,15 @@ const Lamp = styled.img`
     position: absolute;
     bottom: 0;
     left: 45%;
+    object-fit: cover;
+  opacity: 0.6;
 `
 
 const Presentation = styled.h1`
 color: #FFF;
 text-align: right;
 font-family: Montserrat;
-font-size: 70px;
+font-size: 60px;
 font-style: normal;
 font-weight: 300;
 display: flex;
@@ -84,10 +89,10 @@ font-weight: 700;
 }
 >button{
     all:unset;
-    border-radius: 18px;
+    border-radius: 13px;
 background: #AE8034;
-width: 190px;
-height: 56px;
+width: 10vw;
+height: 3vw;
 color: #1E1E1E;
 font-family: Montserrat;
 font-size: 22px;
