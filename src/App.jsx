@@ -4,12 +4,16 @@ import Home from "./components/Home";
 import { useInView } from "react-intersection-observer";
 import { Element, Link } from "react-scroll";
 import SideBarScroll from "./components/SideBarScroll";
+import Desktop from "./components/Desktop";
 
 function App() {
-  const { ref: homeRef, inView: homeInView } = useInView();
-  const { ref: desktopRef, inView: desktopInView } = useInView();
-  const { ref: mobileRef, inView: mobileInView } = useInView();
-  const { ref: contactRef, inView: contactInView } = useInView();
+  const options = {
+    threshold: 0.5
+  }
+  const { ref: homeRef, inView: homeInView } = useInView(options);
+  const { ref: desktopRef, inView: desktopInView } = useInView(options);
+  const { ref: mobileRef, inView: mobileInView } = useInView(options);
+  const { ref: contactRef, inView: contactInView } = useInView(options);
 
   return (
     <AppContainer>
@@ -27,8 +31,8 @@ function App() {
       </Element>
 
       <Element name="desktop">
-        <div className="desktop">
-          <Test ref={desktopRef} />
+        <div ref={desktopRef} className="desktop">
+          <Desktop  />
         </div>
       </Element>
     </AppContainer>
@@ -49,8 +53,3 @@ const AppContainer = styled.div`
     #161c26;
 `;
 
-const Test = styled.div`
-  background-color: black;
-  width: 100vw;
-  height: 100vh;
-`;

@@ -41,7 +41,7 @@ export default function Home() {
 }
 
 const HomeContainer = styled.div`
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   //background-color: red;
   display: flex;
@@ -64,7 +64,7 @@ const Lamp = styled.img`
     transform: scaleX(-1);
     width: 48vw;
     position: absolute;
-    bottom: -40px;
+    bottom: 0;
     left: 45%;
 `
 
